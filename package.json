@@ -1,0 +1,42 @@
+{
+    "name": "@getsaas/layer-bugsnag-node-v7",
+    "description": "An AWS Lambda Layer for node apps using Bugsnag SDK v7.x",
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Sergio Leon",
+        "email": "dev@1nationgfx.com"
+    },
+    "files": [
+        "/lib"
+    ],
+    "main": "./lib/index.js",
+    "scripts": {
+        "clean": "mkdirp dist && rimraf dist/*",
+        "layer": "npm run clean && mkdirp dist/nodejs && cp package.json dist/nodejs/ && cd ./dist/nodejs/ && npm i --prod && cd .. && zip -r getsaas-layer-bugsnag-node-v7.zip ./*",
+        "pub": "yarn npm publish",
+        "major": "yarn version major",
+        "minor": "yarn version minor",
+        "vpatch": "yarn version patch",
+        "layer:pub": "aws --region ${AWS_DEFAULT_REGION:-us-east-1} --profile ${AWS_PROFILE:-default} lambda publish-layer-version --layer-name getsaas-layer-bugsnag-node-v7 --zip-file fileb://dist/getsaas-layer-bugsnag-node-v7.zip"
+    },
+    "keywords": [
+        "aws",
+        "lambda",
+        "layer",
+        "bugsnag",
+        "javascript",
+        "typescript",
+        "nodejs"
+    ],
+    "dependencies": {
+        "@bugsnag/core": "^7.14.0",
+        "@bugsnag/js": "^7.14.1",
+        "@bugsnag/plugin-aws-lambda": "^7.14.1"
+    },
+    "devDependencies": {
+        "mkdirp": "^1.0.4",
+        "rimraf": "^3.0.2"
+    },
+    "packageManager": "yarn@3.1.0"
+}
