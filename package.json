@@ -7,6 +7,10 @@
         "name": "Sergio Leon",
         "email": "dev@1nationgfx.com"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/getsaas/layer-bugsnag-node-v7"
+    },
     "files": [
         "/lib"
     ],
