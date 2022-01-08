@@ -18,7 +18,7 @@
         "major": "yarn version major",
         "minor": "yarn version minor",
         "vpatch": "yarn version patch",
-        "layer:pub": "aws --region ${AWS_DEFAULT_REGION:-us-east-1} --profile ${AWS_PROFILE:-default} lambda publish-layer-version --layer-name getsaas-layer-bugsnag-node-v7 --zip-file fileb://dist/getsaas-layer-bugsnag-node-v7.zip"
+        "layer:pub": "aws --region ${AWS_DEFAULT_REGION:-us-east-1} --profile ${AWS_PROFILE:-default} lambda publish-layer-version --compatible-runtimes nodejs12.x nodejs14.x --layer-name getsaas-layer-bugsnag-node-v7 --zip-file fileb://dist/getsaas-layer-bugsnag-node-v7.zip"
     },
     "keywords": [
         "aws",
